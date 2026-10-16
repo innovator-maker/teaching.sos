@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="سند: مساحة للمعلمين في مصر لتبادل المشكلات والحلول بعد المراجعة.">
+  <meta name="theme-color" content="#176b5b">
+  <title>سند | مجتمع المعلمين</title>
+  <style>
+    /* تنسيق احتياطي يحافظ على شكل مقروء إذا لم يُحمّل styles.css */
+    *{box-sizing:border-box}body{margin:0;background:#f5f7f5;color:#193631;font-family:Tahoma,Arial,sans-serif;line-height:1.7}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}[hidden]{display:none!important}.site-header{min-height:68px;padding:10px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #e3ebe6}.brand{display:flex;gap:9px;align-items:center}.brand-mark{display:grid;place-items:center;width:40px;height:40px;background:#176b5b;color:#fff;border-radius:12px;font-size:23px;font-weight:bold}.main-nav{display:flex;gap:8px}.nav-link,.button,.text-button{border:0;border-radius:10px;padding:10px 14px}.nav-link{background:#f0f5f1;color:#176b5b}.nav-link.active,.button-primary{background:#176b5b;color:#fff}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px}.button-secondary{background:#eef3ef;color:#176b5b}.text-button{background:transparent;color:#176b5b}.hero,.section,.site-footer,.config-alert,.connection-line{width:min(1100px,92%);margin-right:auto;margin-left:auto}.hero{padding:28px 0 20px}.hero h1{font-size:clamp(25px,4vw,38px);line-height:1.35;margin:0 0 8px}.hero p{margin:0;color:#687b74}.section{padding:16px 0 42px}.section-heading,.results-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.section-heading h2{font-size:23px;margin:0}.section-heading p,.results-heading p{margin:3px 0 0;color:#687b74;font-size:13px}.search-panel,.form-card,.aside-card{background:#fff;border:1px solid #e1e9e3;border-radius:16px;padding:18px;margin-top:16px}.field-label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}.search-input-wrap{display:flex;gap:8px}.search-input-wrap input,.filters-grid select,.field-block input,.field-block textarea,.form-grid select,.report-form select,.report-form textarea{width:100%;border:1px solid #dce5df;border-radius:10px;padding:11px;background:#fff;min-height:44px}.filters-grid,.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}.filters-grid label{min-width:0}.search-bottom,.results-heading{margin-top:14px}.results-heading{margin-top:28px}.results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}.problem-card{background:#fff;border:1px solid #e1e9e3;border-radius:15px;padding:18px}.problem-card h3{margin:12px 0 6px}.problem-excerpt,.problem-card p{color:#62756d}.problem-card-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:16px}.form-card{margin-top:0}.field-block{display:block;margin:16px 0}.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.consent-line{display:flex;gap:8px;margin:15px 0}.submit-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(220px,.7fr);gap:16px;margin-top:16px}.problem-dialog{width:min(720px,calc(100% - 20px));max-height:90vh;border:0;border-radius:16px;padding:0}.dialog-head,.dialog-body{padding:18px}.site-footer{padding:22px 0;color:#687b74}.connection-line{padding:8px 0;color:#687b74;font-size:12px}.connection-indicator{display:inline-block;width:8px;height:8px;border-radius:50%;background:#b6c3bc;margin-left:7px}.empty-state{text-align:center;background:#fff;border:1px dashed #d5e1d9;border-radius:15px;padding:30px 14px;color:#687b74}.tag{display:inline-block;border-radius:99px;padding:3px 9px;font-size:12px;background:#edf4ef;color:#176b5b}.form-message{margin-top:14px;padding:12px;border-radius:10px}.form-message.success{background:#e8f6ed;color:#176342}.form-message.error{background:#fff0ed;color:#a53f32}
+  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js"></script>
+  <script src="./api.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="top-strip" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="سند - الصفحة الرئيسية">
+      <span class="brand-mark" aria-hidden="true">س</span>
+      <span><strong>سند</strong><small>مجتمع المعلمين</small></span>
+    </a>
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <button class="nav-link active" data-view="browse" type="button">استكشف</button>
+      <button class="nav-cta" data-view="submit" type="button">＋ أضف مشكلة</button>
+    </nav>
+    <a class="header-help" href="#how-it-works">طريقة العمل</a>
+  </header>
+
+  <main id="home">
+    <section class="connection-banner loading" id="connectionBanner" aria-live="polite">
+      <span class="connection-indicator loading" id="connectionIndicator"></span>
+      <div class="connection-text"><strong id="connectionTitle">جارٍ الاتصال…</strong><span id="connectionMessage">جارٍ الاتصال بقاعدة البيانات…</span></div>
+      <button class="connection-retry" id="connectionRetry" type="button">إعادة الفحص</button>
+    </section>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> خبرة من زميلك، ممكن تفرق</span>
+        <h1>خلّينا نحلّها سوا.</h1>
+        <p>ابحث عن تجربة، شارك مشكلة، أو اقترح حلًا.</p>
+        <div class="hero-actions">
+          <button class="button button-light" data-view="submit" type="button">＋ شارك مشكلة</button>
+          <button class="button button-outline-light" id="heroBrowse" type="button">ابحث عن حل ↓</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-board"><div class="board-note note-a"><b>تحدّي في الفصل</b><span class="fake-line long"></span><span class="fake-line short"></span></div><div class="board-note note-b"><span class="note-icon">✓</span><div><b>فكرة من زميل</b><span class="fake-line mid"></span></div></div></div>
+      </div>
+    </section>
+
+    <section class="config-alert" id="configAlert" hidden>
+      <strong>إعداد مطلوب:</strong> أضف رابط Google Apps Script في ملف <code>config.js</code>، ثم ارفع ملفات المشروع كلها إلى GitHub Pages.
+    </section>
+
+    <section class="section browse-section" id="browseSection">
+      <div class="section-heading">
+        <div><span class="eyebrow eyebrow-dark">مكتبة الخبرات</span><h2>ابحث في المشكلات</h2><p>تظهر المشاركات التي اعتمدها المسؤول فقط.</p></div>
+        <button class="text-button desktop-add" data-view="submit" type="button">＋ أضف مشكلة</button>
+      </div>
+      <form class="search-panel" id="searchForm">
+        <label class="search-main"><span class="field-label">كلمة البحث</span><span class="search-input-wrap"><span class="search-glass" aria-hidden="true">⌕</span><input type="search" id="queryInput" placeholder="مثال: صعوبة فهم الكسور" maxlength="160"><button type="submit" class="button button-primary">بحث</button></span></label>
+        <div class="filters-grid">
+          <label><span class="field-label">المرحلة</span><select id="filterStage"><option value="">كل المراحل</option></select></label>
+          <label><span class="field-label">التخصص</span><select id="filterSpecialization"><option value="">كل التخصصات</option></select></label>
+          <label><span class="field-label">نوع المشكلة</span><select id="filterCategory"><option value="">كل الأنواع</option></select></label>
+          <label><span class="field-label">الصف</span><select id="filterGrade"><option value="">كل الصفوف</option></select></label>
+        </div>
+        <div class="search-bottom"><span class="filter-hint">اختار تصنيفًا أو أكثر لتضييق النتائج.</span><button class="text-button subtle" type="button" id="resetSearch">مسح الفلاتر</button></div>
+      </form>
+
+      <div class="results-heading"><div><h3>المشكلات المنشورة</h3><p id="resultsMeta">المشكلات المعتمدة فقط</p></div><span class="results-count" id="resultsCount">—</span></div>
+      <div class="results-grid" id="resultsList" aria-live="polite"><div class="empty-state"><div class="empty-icon">⌕</div><h3>جارٍ تحميل المشكلات</h3><p>ستظهر هنا المشاركات المعتمدة.</p></div></div>
+      <div class="load-more-wrap"><button class="button button-secondary" type="button" id="loadMore" hidden>عرض المزيد</button></div>
+    </section>
+
+    <section class="section submit-section" id="submitSection" hidden>
+      <div class="section-heading"><div><span class="eyebrow eyebrow-dark">مشاركة جديدة</span><h2>إيه المشكلة اللي بتواجهك؟</h2><p>املأ البيانات الأساسية وسيتم مراجعتها قبل النشر.</p></div><button class="text-button" data-view="browse" type="button">← رجوع للبحث</button></div>
+      <div class="submit-layout">
+        <form class="form-card" id="problemForm" novalidate>
+          <div class="form-card-title"><span class="form-step">١</span><div><h3>بيانات المشكلة</h3><p>الحقول التي عليها نجمة مطلوبة.</p></div></div>
+          <div class="form-grid two-col">
+            <label><span class="field-label">المرحلة <b>*</b></span><select id="problemStage" required><option value="">اختر المرحلة</option></select></label>
+            <label><span class="field-label">التخصص <b>*</b></span><select id="problemSpecialization" required><option value="">اختر التخصص</option></select></label>
+            <label><span class="field-label">نوع المشكلة <b>*</b></span><select id="problemCategory" required><option value="">اختر النوع</option></select></label>
+            <label><span class="field-label">الصف <b>*</b></span><select id="problemGrade" required><option value="">اختر المرحلة أولًا</option></select></label>
+          </div>
+          <div class="form-divider"></div>
+          <label class="field-block"><span class="field-label">عنوان مختصر <b>*</b></span><input id="problemTitle" type="text" minlength="5" maxlength="120" placeholder="مثال: صعوبة شرح الكسور" required><span class="field-hint">من 5 إلى 120 حرفًا.</span></label>
+          <label class="field-block"><span class="field-label">تفاصيل المشكلة <b>*</b></span><textarea id="problemDescription" rows="5" minlength="20" maxlength="3000" placeholder="اشرح ما يحدث وما الذي جرّبته. لا تذكر أسماء أو بيانات شخصية." required></textarea><div class="textarea-footer"><span class="field-hint">تجنّب أسماء الطلاب وأرقام الهواتف.</span><span id="descriptionCount">0 / 3000</span></div></label>
+          <label class="field-block"><span class="field-label">اسم العرض <span class="optional">اختياري</span></span><input id="problemDisplayName" type="text" maxlength="60" placeholder="معلم مجهول"></label>
+          <label class="consent-line"><input id="problemConsent" type="checkbox" required><span>أوافق على مراجعة المشاركة قبل النشر، وأؤكد خلوّها من البيانات الشخصية والمحتوى المسيء.</span></label>
+          <label class="honeypot" aria-hidden="true">لا تملأ هذا الحقل<input id="problemWebsite" type="text" tabindex="-1" autocomplete="off"></label>
+          <div class="form-actions"><button class="button button-primary" type="submit" id="problemSubmit">إرسال للمراجعة ←</button><span class="form-safe-note"><span>✓</span> لن تظهر قبل الموافقة.</span></div>
+          <div class="form-message" id="problemFormMessage" role="status" hidden></div>
+        </form>
+        <aside class="submit-aside">
+          <div class="aside-card aside-tint"><div class="aside-icon">✓</div><h3>قبل الإرسال</h3><ul class="check-list"><li>اكتب المشكلة بوضوح.</li><li>لا تذكر أسماء أو بيانات شخصية.</li><li>كل مشاركة تُراجع قبل نشرها.</li></ul></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works"><div class="how-heading"><span class="eyebrow eyebrow-dark">ثلاث خطوات</span><h2>شارك. راجع. استفد.</h2></div><div class="how-grid"><article class="how-card"><span class="how-number">01</span><div class="how-icon icon-paper">＋</div><h3>شارك المشكلة</h3><p>حدد التصنيف واكتب التفاصيل.</p></article><article class="how-card"><span class="how-number">02</span><div class="how-icon icon-check">✓</div><h3>مراجعة قبل النشر</h3><p>لا يظهر المحتوى قبل اعتماده.</p></article><article class="how-card"><span class="how-number">03</span><div class="how-icon icon-share">↗</div><h3>تبادل الحلول</h3><p>أضف حلًا من واقع خبرتك.</p></article></div></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">س</span><span><strong>سند</strong><small>مجتمع المعلمين</small></span></a><p>خبرة تشاركها، زميل يستفيد.</p><span class="footer-copy">© <span id="currentYear"></span> سند</span></footer>
+
+  <dialog class="problem-dialog" id="problemDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head"><button class="dialog-close" id="closeDialog" type="button" aria-label="إغلاق">×</button><span class="eyebrow eyebrow-dark">تفاصيل المشكلة</span><h2 id="dialogTitle">تفاصيل المشكلة</h2><div id="dialogMeta" class="dialog-meta"></div></div>
+    <div class="dialog-body"><p id="dialogDescription" class="dialog-description"></p><div class="dialog-solutions-heading"><h3>حلول الزملاء</h3><span id="dialogSolutionCount" class="results-count">0</span></div><div id="dialogSolutions" class="solutions-list"></div>
+      <form id="solutionForm" class="solution-form" novalidate><input id="solutionProblemId" type="hidden"><div class="form-card-title"><span class="form-step">＋</span><div><h3>عندك حل؟</h3><p>يُراجع قبل ظهوره.</p></div></div><label class="field-block"><span class="field-label">الحل أو المقترح <b>*</b></span><textarea id="solutionText" rows="4" maxlength="2000" minlength="10" required placeholder="ما الذي نجح معك؟"></textarea></label><label class="field-block"><span class="field-label">اسم العرض <span class="optional">اختياري</span></span><input id="solutionDisplayName" type="text" maxlength="60" placeholder="معلم مجهول"></label><label class="consent-line"><input id="solutionConsent" type="checkbox" required><span>أؤكد خلوّ الحل من البيانات الشخصية والمحتوى المسيء.</span></label><label class="honeypot" aria-hidden="true">لا تملأ هذا الحقل<input id="solutionWebsite" type="text" tabindex="-1" autocomplete="off"></label><div class="form-actions"><button class="button button-primary" id="solutionSubmit" type="submit">إرسال الحل للمراجعة</button><span class="form-safe-note">لن يظهر قبل الموافقة.</span></div><div class="form-message" id="solutionFormMessage" role="status" hidden></div></form>
+      <div class="report-area"><button class="text-button subtle" id="toggleReport" type="button">الإبلاغ عن هذه المشكلة</button><form id="reportForm" class="report-form" hidden><label><span class="field-label">سبب البلاغ</span><select id="reportReason" required><option value="">اختر السبب</option><option>محتوى غير ملائم</option><option>معلومات شخصية</option><option>معلومة مضللة</option><option>إساءة أو تنمر</option><option>أخرى</option></select></label><label><span class="field-label">تفاصيل إضافية <span class="optional">اختياري</span></span><textarea id="reportDetails" rows="2" maxlength="1000"></textarea></label><button class="button button-secondary" type="submit" id="reportSubmit">إرسال البلاغ</button><div class="form-message" id="reportFormMessage" role="status" hidden></div></form></div>
+    </div>
+  </dialog>
+  <iframe name="postFrame" id="postFrame" class="hidden-frame" title="إرسال المشاركة" aria-hidden="true"></iframe>
+  <button class="fab" id="fab" data-view="submit" type="button" aria-label="أضف مشكلة">＋ أضف مشكلة</button>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
